@@ -45,7 +45,7 @@ public class HomePieceOfFurniture extends HomeObject implements PieceOfFurniture
   private static final long serialVersionUID = 1L;
   
   private static final double TWICE_PI = 2 * Math.PI;
-  
+
   /**
    * The properties of a piece of furniture that may change. <code>PropertyChangeListener</code>s added 
    * to a piece of furniture will be notified under a property name equal to the string value of one these properties.
@@ -56,12 +56,12 @@ public class HomePieceOfFurniture extends HomeObject implements PieceOfFurniture
   /** 
    * The properties on which home furniture may be sorted.  
    */
-  public enum SortableProperty {CATALOG_ID, NAME, WIDTH, DEPTH, HEIGHT, MOVABLE, 
+  public enum SortableProperty {CATALOG_ID, NAME, WIDTH, DEPTH, HEIGHT, VOLUME, MOVABLE,
                                 DOOR_OR_WINDOW, COLOR, TEXTURE, VISIBLE, X, Y, ELEVATION, ANGLE,
                                 PRICE, VALUE_ADDED_TAX, VALUE_ADDED_TAX_PERCENTAGE, PRICE_VALUE_ADDED_TAX_INCLUDED, LEVEL};
   private static final Map<SortableProperty, Comparator<HomePieceOfFurniture>> SORTABLE_PROPERTY_COMPARATORS;
   private static final float [][] IDENTITY = new float [][] {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
-  
+
   static {
     final Collator collator = Collator.getInstance();
     // Init piece property comparators
@@ -102,6 +102,11 @@ public class HomePieceOfFurniture extends HomeObject implements PieceOfFurniture
           return HomePieceOfFurniture.compare(piece1.height, piece2.height);
         }
       });
+    SORTABLE_PROPERTY_COMPARATORS.put(SortableProperty.VOLUME, new Comparator<HomePieceOfFurniture>() {
+      public int compare(HomePieceOfFurniture piece1, HomePieceOfFurniture piece2) {
+        return HomePieceOfFurniture.compare((piece1.height * piece1.width * piece1.depth), (piece2.height * piece2.width * piece1.depth));
+      }
+    });
     SORTABLE_PROPERTY_COMPARATORS.put(SortableProperty.DEPTH, new Comparator<HomePieceOfFurniture>() {
         public int compare(HomePieceOfFurniture piece1, HomePieceOfFurniture piece2) {
           return HomePieceOfFurniture.compare(piece1.depth, piece2.depth);
@@ -544,6 +549,14 @@ public class HomePieceOfFurniture extends HomeObject implements PieceOfFurniture
    */
   public float getHeight() {
     return this.height;
+  }
+
+  /**
+   * Returns the volume of this piece of furniture.
+   */
+  public float getVolume() {
+    float v = this.height * this.width * this.depth;
+    return v;
   }
 
   /**

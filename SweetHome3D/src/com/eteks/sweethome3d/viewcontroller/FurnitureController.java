@@ -525,13 +525,14 @@ public class FurnitureController implements Controller {
     } else {
       // Add furniture property after the visible property that has the previous index in 
       // the following list
-      List<HomePieceOfFurniture.SortableProperty> propertiesOrder = 
+      List<HomePieceOfFurniture.SortableProperty> propertiesOrder =
           Arrays.asList(new HomePieceOfFurniture.SortableProperty [] {
-              HomePieceOfFurniture.SortableProperty.CATALOG_ID, 
-              HomePieceOfFurniture.SortableProperty.NAME, 
+              HomePieceOfFurniture.SortableProperty.CATALOG_ID,
+              HomePieceOfFurniture.SortableProperty.NAME,
               HomePieceOfFurniture.SortableProperty.WIDTH,
               HomePieceOfFurniture.SortableProperty.DEPTH,
               HomePieceOfFurniture.SortableProperty.HEIGHT,
+              HomePieceOfFurniture.SortableProperty.VOLUME,
               HomePieceOfFurniture.SortableProperty.X,
               HomePieceOfFurniture.SortableProperty.Y,
               HomePieceOfFurniture.SortableProperty.ELEVATION,
@@ -545,7 +546,7 @@ public class FurnitureController implements Controller {
               HomePieceOfFurniture.SortableProperty.PRICE,
               HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX_PERCENTAGE,
               HomePieceOfFurniture.SortableProperty.VALUE_ADDED_TAX,
-              HomePieceOfFurniture.SortableProperty.PRICE_VALUE_ADDED_TAX_INCLUDED}); 
+              HomePieceOfFurniture.SortableProperty.PRICE_VALUE_ADDED_TAX_INCLUDED});
       int propertyIndex = propertiesOrder.indexOf(furnitureProperty) - 1;
       if (propertyIndex > 0) {      
         while (propertyIndex > 0) {
