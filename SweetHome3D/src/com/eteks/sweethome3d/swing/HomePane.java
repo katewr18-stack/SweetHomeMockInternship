@@ -1405,6 +1405,7 @@ public class HomePane extends JRootPane implements HomeView {
                               Map<HomePieceOfFurniture.SortableProperty, Action> actions,
                               HomePieceOfFurniture.SortableProperty key) {
     Action action = getActionMap().get(actionType);
+
     if (action != null && action.getValue(Action.NAME) != null) {
       actions.put(key, action);
     }
