@@ -158,6 +158,7 @@ public class Home implements Serializable, Cloneable {
         HomePieceOfFurniture.SortableProperty.WIDTH,
         HomePieceOfFurniture.SortableProperty.DEPTH,
         HomePieceOfFurniture.SortableProperty.HEIGHT,
+        HomePieceOfFurniture.SortableProperty.VOLUME,
         HomePieceOfFurniture.SortableProperty.VISIBLE});
     // Init transient lists and other fields
     init(true);
@@ -276,6 +277,7 @@ public class Home implements Serializable, Cloneable {
       moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedViewY");
       moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedViewWidth");
       moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedViewHeight");
+      moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedViewVolume");
       moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedView");
       moveVisualProperty("com.eteks.sweethome3d.swing.HomeComponent3D.detachedViewDividerLocation");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.MainPaneDividerLocation");
@@ -290,9 +292,11 @@ public class Home implements Serializable, Cloneable {
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.FrameY");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.FrameWidth");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.FrameHeight");
+      moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.FrameVolume");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.FrameMaximized");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.ScreenWidth");
       moveVisualProperty("com.eteks.sweethome3d.SweetHome3D.ScreenHeight");
+
     }
 
     addModelListeners();
@@ -489,6 +493,7 @@ public class Home implements Serializable, Cloneable {
       case WIDTH : 
       case DEPTH :
       case HEIGHT :
+      case VOLUME :
       case MOVABLE :
       case DOOR_OR_WINDOW :
       case COLOR :
